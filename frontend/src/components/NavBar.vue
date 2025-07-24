@@ -1,22 +1,22 @@
 <template>
     <nav class="navbar navbar-expand-md custom-nav">
         <div class="container">
-            <a class="navbar-brand" href="#">Kitap Özetleri</a>
+            <RouterLink class="navbar-brand" :to="{name: 'home'}">{{brandName}}</RouterLink>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Anasayfa</a>
+                    <RouterLink class="nav-link" :to="{name: 'home'}">Anasayfa</RouterLink>
+                </li>
+                 <li class="nav-item">
+                    <RouterLink class="nav-link" :to="{name: 'books'}">Kitaplar</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kitaplar</a>
+                    <RouterLink class="nav-link" :to="{name: 'contact'}">İletişim</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">İletişim</a>
+                    <RouterLink class="nav-link" :to="{name: 'login'}">Giriş Yap</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Giriş Yap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kayıt Ol</a>
+                    <RouterLink class="nav-link" :to="{name: 'register'}">Kayıt Ol</RouterLink>
                 </li>
             </ul>
         </div>
@@ -24,8 +24,15 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
     export default {
         name: "NavBar",
+        data(){
+            return{
+                brandName: "Kitap Özetleri",
+            }
+        }
     }
 </script>
 
@@ -44,8 +51,16 @@
 }
 
 .nav-link{
-    padding: 10px 25px;
+    padding: 10px 15px !important;
     color: #fff;
     text-align: center;
+}
+
+.nav-link:hover{
+    color: #c50111;
+}
+
+.active-link{
+    color: #c50111;
 }
 </style>
