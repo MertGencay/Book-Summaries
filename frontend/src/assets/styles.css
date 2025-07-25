@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+  --primary-color: #063547;
+  --secondary-color: #c50111;
+  --light-bg: #f9f7f1;
+  --card-bg: #ffffff;
+  --input-border: #ccc;
+  --input-focus: #063547;
+}
+
+html, body {
+  font-family: "Mulish", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--primary-color);
+}
+
+.full-section-heigth {
+  min-height: calc(100vh - 116px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('https://png.pngtree.com/background/20250202/original/pngtree-old-books-on-shelves-in-library-picture-image_16019594.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+
+
+/* Form kartı */
+form {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 10px;
+  margin-bottom: 60px;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+
+/* Başlık ve alt metin */
+.form-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  color: #f6f6f6;
+  margin-bottom: 20px;
+}
+
+/* İkonlu inputlar */
+.input-icon {
+  padding-left: 2.2rem !important;
+}
+
+.input-icon-left {
+  position: absolute;
+  top: 38px;
+  left: 12px;
+  font-size: 1.2rem;
+  color: #666;
+  pointer-events: none;
+}
+
+/* Inputlar */
+input.form-control {
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 5px rgba(6, 53, 71, 0.4);
+}
+
+/* Buton */
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  form {
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.9rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+  }
+}

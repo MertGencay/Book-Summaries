@@ -1,18 +1,18 @@
 <template>
     <section>
         <div class="container">
-            <SectionHeader title="Kitap Ayrıntıları" text="Deneme"></SectionHeader>
-            <button>Geri</button>
+            <SectionHeader :title="book.name" :text="book.author" ></SectionHeader>
+            <font-awesome-icon icon="arrow-left" size="2xl" class="mb-2" style="cursor: pointer;" @click="goToBackBooks"></font-awesome-icon>
             <div class="row mb-4">
                 <div class="col-lg-6">
                     <img class="card-img-top" src="../../images/b_detail.jpg">
                 </div>
                 <div class="col-lg-6 details-wrapper">
-                    <p class="lead description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, ex accusamus cum sequi officia quasi?</p>
+                    <p class="lead description">{{ book.description }}</p>
                     <div class="mb-4">
                         <div class="row border-bottom pb-2">
                             <div class="col-lg-6"><strong>Sayfa</strong></div>
-                            <div class="col-lg-6">278</div>
+                            <div class="col-lg-6">{{ book.page }}</div>
                         </div>
                         <div class="row border-bottom pb-2">
                             <div class="col-lg-6"><strong>Kategori</strong></div>
@@ -20,11 +20,11 @@
                         </div>
                         <div class="row border-bottom pb-2">
                             <div class="col-lg-6"><strong>Puanı</strong></div>
-                            <div class="col-lg-6">7.2</div>
+                            <div class="col-lg-6">{{ book.rating }}</div>
                         </div>
                         <div class="row border-bottom pb-2">
                             <div class="col-lg-6"><strong>Yükleme Tarihi</strong></div>
-                            <div class="col-lg-6">24 Temmuz 2025</div>
+                            <div class="col-lg-6">{{ book.uploadDate }}</div>
                         </div>
                     </div>
                     <div class="comments-section">
@@ -35,8 +35,8 @@
                                 <div class="d-flex justify-content-between">
                                     <p class="fw-bold fst-italic">Deneme</p>
                                     <div class="d-flex align-items-center">
-                                        <p>Beğenme</p>
-                                        <p class="ps-2"><strong>8</strong></p>
+                                        <font-awesome-icon :icon="['far','thumbs-up']"/>
+                                        <p class="ps-2 mb-0"><strong>8</strong></p>
                                     </div>
                                 </div>
                             </div> 
@@ -50,12 +50,28 @@
 
 <script>
 import SectionHeader from '@/components/SectionHeader.vue';
+import books from "@/db.js";
 
     export default {
         name: "BookDetailView",
         components:{
             SectionHeader
+        },
+        data() {
+            return {
+                book: null
+            }
+        },
+        created() {
+            const bookId = this.$route.params.id;
+            this.book = books.find(book => book.id === parseInt(bookId));
+        },
+        methods: {
+            goToBackBooks() {
+            this.$router.push({name: "books"})
+            }
         }
+        
     }
 </script>
 
